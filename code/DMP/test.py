@@ -285,6 +285,11 @@ if __name__ == "__main__":
     ax1.plot3D(y_reproduce[:,0],y_reproduce[:,1],y_reproduce[:,2],'g')
     ax1.plot3D(y_reproduce_2[:,0],y_reproduce_2[:,1],y_reproduce_2[:,2],'b')
 
+    # 保存为 CSV 文件
+    np.savetxt('y_demo.csv', y_demo.T, delimiter=',')
+    np.savetxt('y_reproduce.csv', y_reproduce, delimiter=',')
+    np.savetxt('y_reproduce_2.csv', y_reproduce_2, delimiter=',')
+
     # # ----------------- For same initial and goal positions
     # t = np.linspace(0, 2*np.pi, data_len)
 
