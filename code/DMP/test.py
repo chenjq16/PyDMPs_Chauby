@@ -247,7 +247,7 @@ if __name__ == "__main__":
     # y_demo[0,:] = np.sin(t)
     # y_demo[1,:] = np.cos(t)
 
-    data = pd.read_csv('code\DMP\data.csv')
+    data = pd.read_csv('code/DMP/pos_bottle.csv')
     data_len,_ = data.shape
     y_demo = data.values.T
     
@@ -260,6 +260,9 @@ if __name__ == "__main__":
 
     # set new initial and goal poisitions
     y_reproduce_2, dy_reproduce_2, ddy_reproduce_2 = dmp.reproduce(tau=0.5, initial=[-552.22+50,563.03+50,251.6+50], goal=[-211.83+25,-36.362+25,329.24+25])
+
+    # 保存到 CSV 文件
+    np.savetxt('pos_bottle_reproduce.csv', y_reproduce, delimiter=',')
 
     plt.figure(figsize=(10, 5))
     plt.plot(y_demo[0,:], 'g', label='demo x')
